@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************
+
+*******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+#ifndef DNODE_H
+#define DNODE_H
+template < class N >
+class Dnode
+{
+  public:
+	// Universal constructor
+  //Sets everything to NULL
+  Dnode(N d = N(), Dnode *n = NULL, Dnode *p = NULL )
+	{data_field = d;  Next_link = n; Prev_link  = p;}
+////////////////////////////////////////////////////////////////////////////////
+        // Mutator functions
+	void set_data(N d)
+		{data_field = d;}
+////////////////////////////////////////////////////////////////////////////////
+	void set_Next(Dnode *n)
+		{Next_link = n;}
+
+  void set_Previous(Dnode *n)
+  	{Prev_link = n;}
+////////////////////////////////////////////////////////////////////////////////
+  // Accessor functions
+  N data() const
+		{return data_field;}
+////////////////////////////////////////////////////////////////////////////////
+  Dnode* Nlink()const
+	{return Next_link;}
+
+  Dnode* Plink()const
+  {return Prev_link;}
+
+////////////////////////////////////////////////////////////////////////////////
+
+    private:
+
+	N data_field;
+	Dnode* Next_link;
+  Dnode * Prev_link;
+};
+
+#endif
